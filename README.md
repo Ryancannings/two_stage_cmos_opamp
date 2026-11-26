@@ -13,11 +13,11 @@ A two-stage Miller-compensated op-amp designed in Cadence Virtuoso using the gpd
 | Output swing | 0.3 – 1.5 V | 0.12 – 1.62 V | — |
 | Offset (Monte Carlo) | — | σ = 7.8 mV | — |
  
-![PVT summary](2_Stage_OpAmp_Images/09c_pvt_summary_table.png)
+![PVT summary](09c_pvt_summary_table.png)
  
  
 ## 1. Circuit Schematic
-![Schematic](2_Stage_OpAmp_Images/00_opamp_schematic.png)
+![Schematic](00_opamp_schematic.png)
  
 # Transistor Specifications
 | Device | W / L | multiplicity |
@@ -68,10 +68,10 @@ R_z = 2.5 kΩ puts the zero at ~106 MHz, about 7× the unity-gain frequency. Thi
 | C_c w/o R_z | 61.2° | 17.2 dB |
 | With R_z = 2.5 kΩ | 72.6° | 38.1 dB |
  
-![Loop gain, Cc only](2_Stage_OpAmp_Images/01_stb_loopgain_cc_only.png)
-![Rz sweep: PM and GBW](2_Stage_OpAmp_Images/02a_rz_sweep_pm_gbw.png)
-![Rz sweep: GM](2_Stage_OpAmp_Images/02b_rz_sweep_gm.png)
-![Loop gain with Rz](2_Stage_OpAmp_Images/03_stb_loopgain_rz_2p5k.png)
+![Loop gain, Cc only](01_stb_loopgain_cc_only.png)
+![Rz sweep: PM and GBW](02a_rz_sweep_pm_gbw.png)
+![Rz sweep: GM](02b_rz_sweep_gm.png)
+![Loop gain with Rz](03_stb_loopgain_rz_2p5k.png)
  
  
 ## 4. Transient
@@ -81,9 +81,9 @@ R_z = 2.5 kΩ puts the zero at ~106 MHz, about 7× the unity-gain frequency. Thi
 |---|---|---|
 | 15.8 V/µs | 15.3 V/µs | 51.2 ns |
  
-![Transient](2_Stage_OpAmp_Images/04a_transient_full.png)
-![Rising edge](2_Stage_OpAmp_Images/04b_transient_slew_rising.png)
-![Falling edge](2_Stage_OpAmp_Images/04c_transient_slew_falling.png)
+![Transient](04a_transient_full.png)
+![Rising edge](04b_transient_slew_rising.png)
+![Falling edge](04c_transient_slew_falling.png)
  
 ## 5. Input and Output Range
 $$V_{CM,min} = V_{GS1} + V_{DS,sat5} \qquad V_{CM,max} = V_{DD} - |V_{GS3}| + V_{Tn}$$
@@ -92,9 +92,9 @@ $$V_{DS,sat7} \le V_{out} \le V_{DD} - |V_{DS,sat6}|$$
  
 Input range: 0.9 – 1.65 V. Output swing: 0.12 – 1.62 V where there is a gain of −2 (within 1%)
  
-![Input range](2_Stage_OpAmp_Images/05_icmr_error.png)
-![Output swing](2_Stage_OpAmp_Images/06a_output_swing_vout.png)
-![Output slope](2_Stage_OpAmp_Images/06b_output_swing_slope.png)
+![Input range](05_icmr_error.png)
+![Output swing](06a_output_swing_vout.png)
+![Output slope](06b_output_swing_slope.png)
  
 ## 6. PSRR and CMRR
  
@@ -109,8 +109,8 @@ $$\text{PSRR}_{dB} = -20\log_{10}\left|\frac{v_{out}}{v_{dd}}\right| \qquad \tex
 | PSRR+ | 83.5 dB | 23.7 dB |
 | CMRR | 83.9 dB | 80.2 dB |
  
-![PSRR](2_Stage_OpAmp_Images/07_psrr.png)
-![CMRR](2_Stage_OpAmp_Images/08_cmrr.png)
+![PSRR](07_psrr.png)
+![CMRR](08_cmrr.png)
  
 ## 7. PVT Corners (45 Corners, All Passing)
  
@@ -122,8 +122,8 @@ $$\text{GBW} \propto g_{m1} = \sqrt{2\mu_n C_{ox}\tfrac{W}{L}I_D} \;\Rightarrow\
  
 This predicts GBW falls to 0.81× at 125 °C giving 11.7 MHz. The simulation gives 11.56 MHz.
  
-![PVT stability](2_Stage_OpAmp_Images/09a_pvt_stability_vs_temp.png)
-![PVT DC](2_Stage_OpAmp_Images/09b_pvt_dc_vs_temp.png)
+![PVT stability](09a_pvt_stability_vs_temp.png)
+![PVT DC](09b_pvt_dc_vs_temp.png)
  
 ## 8. Monte Carlo (100% yield)
 200 samples with random transistor mismatch.
@@ -138,9 +138,8 @@ $$\sigma(\Delta V_T) = \frac{A_{VT}}{\sqrt{WL}}$$
  
 The small input pair of 2 µm² sets the offset. Doubling both W and L would roughly halve it.
  
-![Offset histogram](2_Stage_OpAmp_Images/10_mc_offset_histogram.png)
+![Offset histogram](10_mc_offset_histogram.png)
  
 ## Limitations/Further Considerations
 - There is an ideal bias current source, making the PVT results optimistic
 - Next Steps: layout, DRC/LVS, and post-layout simulation
- 
